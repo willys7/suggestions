@@ -5,8 +5,10 @@ app.controller('HomeController', ['$scope','suggestions', function($scope, sugge
 			return;
 		}
 		$scope.posts.push({
+            id: $scope.posts.length +1,
 			title: $scope.title,
 			upvotes: 0,
+            comments: [],
 		});
 		$scope.title = '';
 	};
