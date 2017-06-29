@@ -1,5 +1,8 @@
-var app = angular.module("SuggestionBox", ["ngRoute"]);
-app.config(function($routeProvider) {
+angular
+    .module("SuggestionBox", ["ngRoute"])
+    .config(config);
+
+function config($routeProvider) {
     $routeProvider
     .when("/suggestions", {
         controller: 'HomeController',
@@ -12,4 +15,4 @@ app.config(function($routeProvider) {
     .otherwise ({
     redirectTo: '/suggestions'
     });
-});
+}

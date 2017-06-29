@@ -1,25 +1,33 @@
-app.controller('SuggestionController', ['$scope', '$routeParams', 'suggestions',  function($scope, $routeParams, suggestions) {
+	
+angular.module('SuggestionBox')
+	.controller('SuggestionController','suggestionController')
+	suggestionController.$inject = [
+		"$scope",
+		"suggestions"
+	];
 
-	$scope.post = suggestions.posts[$routeParams.id - 1 ];
+	function suggestionController ($scope, suggestions){
+		$scope.post = suggestions.posts[$routeParams.id - 1 ];
 
-	console.log($routeParams.id);
+		console.log($routeParams.id);
 
-	$scope.addComment = function(){
-		if(!$scope.body || $scope.body === ""){
-			return;
+		$scope.addComment = function(){
+			if(!$scope.body || $scope.body === ""){
+				return;
+			}
+
+			$scope.post.comments.push({
+				body: $scope.body,
+				upvotes: 0
+			});
+			$scope.body = "";
 		}
 
-		$scope.post.comments.push({
-			body: $scope.body,
-			upvotes: 0
-		});
-		$scope.body = "";
+		$scope.upVoteComment = function(comment){
+			comment.upvotes += 1;
+		};
+
+		$scope.new_comment = "";
 	}
 
-	$scope.upVoteComment = function(comment){
-		comment.upvotes += 1;
-	};
 
-	$scope.new_comment = "";
-
-}]);
