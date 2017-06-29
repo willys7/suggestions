@@ -38,7 +38,7 @@ var demoSuggestions = {
 			upvotes: 7,
 			comments: [{
 				body:'I love Pizza',
-				upvotes: 7,
+				upvotes: 6,
 			}],
 		},
 	]

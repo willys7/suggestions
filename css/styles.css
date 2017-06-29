@@ -45,10 +45,14 @@ html {
 	background-color: #333;
 }
 
+
 .comment-array {
 	border-bottom: solid 2px;
 }
 
+.container{
+	color: #fff;
+}
 .comment-array h2 {
 	margin: 0;
 	padding: 0;
@@ -58,4 +62,11 @@ html {
 	color: green;
 	font-weight: 200;
 	font-size: 18px;
+}
+
+.form{
+	width: 600px;
+	margin: 30px auto;
+	color: #fff;
+	background-color: #333;
 }

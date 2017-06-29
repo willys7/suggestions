@@ -1,19 +1,19 @@
 app.controller('SuggestionController', ['$scope', '$routeParams', 'suggestions',  function($scope, $routeParams, suggestions) {
 
-	$scope.post = suggestions.posts[$routeParams.id];
+	$scope.post = suggestions.posts[$routeParams.id - 1 ];
 
 	console.log($routeParams.id);
 
 	$scope.addComment = function(){
-		if(!$scope.new_comment || $scope.new_comment === ""){
+		if(!$scope.body || $scope.body === ""){
 			return;
 		}
 
 		$scope.post.comments.push({
-			body: $scope.new_comment,
+			body: $scope.body,
 			upvotes: 0
 		});
-		$scope.new_comment = "";
+		$scope.body = "";
 	}
 
 	$scope.upVoteComment = function(comment){
