@@ -2,9 +2,9 @@
   <h2>{{ post.title }}</h2>
 
   <div class="comments">
-    <div class="container" ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+    <div class="container" ng-repeat="comment in vmsuggestion.post.comments | orderBy:'-upvotes'">
       <h1>"{{ comment.body }}"</h1>          
-      <h1 class="glyphicon glyphicon-plus-sign" ng-click="upVote(comment)"></h1>
+      <h1 class="glyphicon glyphicon-plus-sign" ng-click="vmsuggestion.upVoteComment(comment)"></h1>
       {{ comment.upvotes }}
     </div>
   </div>
@@ -19,10 +19,10 @@
 <!-- Suggestion submit form -->
 <div class="form">
 
-    <form ng-submit="addComment()" style="margin-top: 50px">
+    <form ng-submit="vmsuggestion.addComment()" style="margin-top: 50px">
       <h2> Submit Your Comment </h2>
       <div class="form-group">
-        <input ng-model="body" type="text" class="form-control" placeholder="Your suggestion here"></input>
+        <input ng-model="vmsuggestion.body" type="text" class="form-control" placeholder="Your suggestion here"></input>
       </div>
       <button type="submit" class="btn btn-primary">Comment</button>
     </form>
