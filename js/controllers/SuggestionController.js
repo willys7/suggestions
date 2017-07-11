@@ -16,8 +16,9 @@
 			})[0];
 
 			console.log($routeParams.id);
-			
-			vm.addComment = function(){
+
+			vm.addComment = addComment;
+			function addComment(){
 				if(!vm.body || vm.body === ""){
 					return;
 				}
@@ -29,7 +30,8 @@
 				vm.body = "";
 			}
 
-			vm.upVoteComment = function(comment){
+			vm.upVoteComment = upVoteComment;
+			function upVoteComment(comment){
 				comment.upvotes += 1;
 			};
 

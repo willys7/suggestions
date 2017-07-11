@@ -3,15 +3,8 @@
 	angular.module('SuggestionBox').factory('suggestions',suggestions);
 		suggestions.$inject = ['$http'];
 		function suggestions($http){
-			var service = {
-				getPosts: getPosts
-			}
-			return service;
-		}
-
-		function getPosts(){
 			var demoSuggestions = [
-			
+
 				{
 					id : 1,
 					title: 'Sing Bon Jovi\'s "Living on a Prayer" halfway through meetings',
@@ -52,8 +45,26 @@
 						upvotes: 6,
 					}],
 				}
-				
+
 			];
-			return demoSuggestions;
+			var service = {
+				getPosts: getPosts,
+				addPosts: addPosts,
+				demoSuggestions: demoSuggestions
+			}
+			
+			
+			return service;
+
+			function getPosts(){
+				return service.demoSuggestions;
+			}
+			function addPosts(post){
+				service.demoSuggestions.push(post);
+			}
+
+			
 		}
+
+		
 })();

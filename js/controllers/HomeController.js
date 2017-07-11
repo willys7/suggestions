@@ -13,19 +13,25 @@
 		function homeController($scope, suggestions){
 			var vm = this;
 			vm.posts= suggestions.getPosts()
-			vm.addSuggestion = function() {
+
+			vm.addSuggestion = addSuggestion;
+			function addSuggestion() {
 				if(!vm.title || vm.title === "") {
 					return;
 				}
-				vm.posts.push({
+				var post = {
 					id: vm.posts.length +1,
 					title: vm.title,
 					upvotes: 0,
-					comments: [],
-				});
+					comments: []
+				};
+				
+				suggestions.addPosts(post)
+
 				vm.title = '';
 			};
-			vm.upVote =function(x) {
+			vm.upVote = upVote;
+			function upVote(x) {
 				x.upvotes +=1;
 			};
 		}
